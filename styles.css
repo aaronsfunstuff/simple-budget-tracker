@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fef9e7; /* light pastel yellow background */
+    background-color: #fef9e7; 
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,40 +10,50 @@ body {
 }
 
 .container {
-    background-color: #fff; /* white container background */
+    background-color: #fff; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px; 
     text-align: center;
+    max-width: 90%; 
 }
+
 
 h1 {
     margin-bottom: 20px;
-    color: #ff8c42; /* pastel orange */
+    color: #ff8c42;
+}
+
+.new-expense {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .new-expense input {
-    width: calc(50% - 10px);
+    flex: 1; 
     padding: 10px;
-    margin: 5px 0;
+    margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px; 
 }
 
 .new-expense button {
     padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #f4d35e; /* pastel yellow */
+    background-color: #f4d35e;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 14px;
 }
 
 .new-expense button:hover {
-    background-color: #ee964b; /* slightly darker pastel orange on hover */
+    background-color: #ee964b;
 }
 
 .expenses-list {
@@ -59,16 +69,17 @@ h1 {
 .expenses-list li {
     padding: 10px;
     margin: 5px 0;
-    background-color: #fff; /* white list item background */
+    background-color: #fff; 
     border: 1px solid #ddd;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px; 
 }
 
 .expenses-list li:hover {
-    background-color: #f9f9f9; /* slightly darker white on hover */
+    background-color: #f9f9f9; 
 }
 
 .total {
@@ -77,3 +88,25 @@ h1 {
     font-weight: bold;
     color: #555;
 }
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+.actions button {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px; 
+}
+
+.actions button:hover {
+    background-color: #c82333; 
+}
+
