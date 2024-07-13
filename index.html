@@ -9,22 +9,26 @@
 <body>
     <div class="container">
         <h1>Budget Tracker</h1>
-        <div class="new-expense">
-            <input type="text" id="expense-name" placeholder="Expense Name">
-            <input type="number" id="expense-amount" placeholder="Amount">
+        <div class="new-entry">
+            <input type="text" id="entry-name" placeholder="Name">
+            <input type="number" id="entry-amount" placeholder="Amount">
         </div>
-       <div class="new-expense">
-      <button onclick="addExpense()">Add Expense</button>
+      <div class="new-entry">
+      <select id="entry-type">
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+            </select>
+            <button onclick="addEntry()">Add Entry</button>
       </div>
-        <div class="expenses-list">
-            <h2>Expenses</h2>
-            <ul id="expenses"></ul>
+        <div class="entries-list">
+            <h2>Entries</h2>
+            <ul id="entries"></ul>
         </div>
         <div class="total">
             <h2>Total: $<span id="total-amount">0.00</span></h2>
         </div>
         <div class="actions">
-            <button onclick="clearAllExpenses()">Clear All</button>
+            <button onclick="clearAllEntries()">Clear All</button>
         </div>
     </div>
     <script src="script.js"></script>
