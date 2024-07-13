@@ -1,14 +1,16 @@
 let totalAmount = 0;
 
 function addExpense() {
-    const expenseName = document.getElementById('expense-name').value;
+    const expenseName = document.getElementById('expense-name').value.trim();
     const expenseAmount = parseFloat(document.getElementById('expense-amount').value);
 
     if (expenseName && !isNaN(expenseAmount) && expenseAmount > 0) {
         const expenseList = document.getElementById('expenses');
         const expenseItem = document.createElement('li');
 
-        expenseItem.innerHTML = `${expenseName} - $${expenseAmount.toFixed(2)} 
+        expenseItem.innerHTML = `
+            <span>${expenseName}</span>
+            <span>$${expenseAmount.toFixed(2)}</span>
             <button onclick="removeExpense(this, ${expenseAmount})">Remove</button>`;
         expenseList.appendChild(expenseItem);
 
@@ -28,4 +30,12 @@ function removeExpense(button, amount) {
 
     totalAmount -= amount;
     document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
+}
+
+function clearAllExpenses() {
+    const expensesList = document.getElementById('expenses');
+    expensesList.innerHTML = ''; // Clear all list items
+
+    totalAmount = 0;
+    document.getElementById('total-amount').innerText = '0.00'; // Reset total amount display
 }
