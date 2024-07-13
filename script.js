@@ -1,41 +1,53 @@
+// script.js
+
 let totalAmount = 0;
 
-function addExpense() {
-    const expenseName = document.getElementById('expense-name').value.trim();
-    const expenseAmount = parseFloat(document.getElementById('expense-amount').value);
+function addEntry() {
+    const entryName = document.getElementById('entry-name').value.trim();
+    const entryAmount = parseFloat(document.getElementById('entry-amount').value);
+    const entryType = document.getElementById('entry-type').value;
 
-    if (expenseName && !isNaN(expenseAmount) && expenseAmount > 0) {
-        const expenseList = document.getElementById('expenses');
-        const expenseItem = document.createElement('li');
+    if (entryName && !isNaN(entryAmount) && entryAmount > 0) {
+        const entriesList = document.getElementById('entries');
+        const entryItem = document.createElement('li');
+        entryItem.classList.add(entryType);
 
-        expenseItem.innerHTML = `
-            <span>${expenseName}</span>
-            <span>$${expenseAmount.toFixed(2)}</span>
-            <button onclick="removeExpense(this, ${expenseAmount})">Remove</button>`;
-        expenseList.appendChild(expenseItem);
+        entryItem.innerHTML = `
+            <span>${entryName}</span>
+            <span>$${entryAmount.toFixed(2)}</span>
+            <button onclick="removeEntry(this, ${entryAmount}, '${entryType}')">Remove</button>`;
+        entriesList.appendChild(entryItem);
 
-        totalAmount += expenseAmount;
+        if (entryType === 'expense') {
+            totalAmount -= entryAmount;
+        } else if (entryType === 'income') {
+            totalAmount += entryAmount;
+        }
+        
         document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
 
-        document.getElementById('expense-name').value = '';
-        document.getElementById('expense-amount').value = '';
+        document.getElementById('entry-name').value = '';
+        document.getElementById('entry-amount').value = '';
     } else {
-        alert('Please enter a valid expense name and amount.');
+        alert('Please enter a valid name and amount.');
     }
 }
 
-function removeExpense(button, amount) {
-    const expenseItem = button.parentElement;
-    expenseItem.remove();
+function removeEntry(button, amount, type) {
+    const entryItem = button.parentElement;
+    entryItem.remove();
 
-    totalAmount -= amount;
+    if (type === 'expense') {
+        totalAmount += amount;
+    } else if (type === 'income') {
+        totalAmount -= amount;
+    }
+
     document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
 }
 
-function clearAllExpenses() {
-    const expensesList = document.getElementById('expenses');
-    expensesList.innerHTML = ''; // Clear all list items
-
+function clearAllEntries() {
+    document.getElementById('entries').innerHTML = '';
     totalAmount = 0;
-    document.getElementById('total-amount').innerText = '0.00'; // Reset total amount display
+    document.getElementById('total-amount').innerText = '0.00';
 }
