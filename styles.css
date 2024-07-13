@@ -19,20 +19,19 @@ body {
     max-width: 90%; 
 }
 
-
 h1 {
     margin-bottom: 20px;
     color: #ff8c42;
 }
 
-.new-expense {
+.new-entry {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
 
-.new-expense input {
+.new-entry input, .new-entry select {
     flex: 1; 
     padding: 10px;
     margin-right: 10px;
@@ -41,7 +40,7 @@ h1 {
     font-size: 14px; 
 }
 
-.new-expense button {
+.new-entry button {
     padding: 10px 20px;
     background-color: #f4d35e;
     color: #fff;
@@ -52,21 +51,21 @@ h1 {
     font-size: 14px;
 }
 
-.new-expense button:hover {
+.new-entry button:hover {
     background-color: #ee964b;
 }
 
-.expenses-list {
+.entries-list {
     margin-top: 20px;
     text-align: left;
 }
 
-.expenses-list ul {
+.entries-list ul {
     list-style-type: none;
     padding: 0;
 }
 
-.expenses-list li {
+.entries-list li {
     padding: 10px;
     margin: 5px 0;
     background-color: #fff; 
@@ -78,7 +77,15 @@ h1 {
     font-size: 14px; 
 }
 
-.expenses-list li:hover {
+.entries-list li.expense {
+    color: #dc3545;
+}
+
+.entries-list li.income {
+    color: #28a745;
+}
+
+.entries-list li:hover {
     background-color: #f9f9f9; 
 }
 
